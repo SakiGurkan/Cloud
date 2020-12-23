@@ -21,6 +21,6 @@ echo "Cem Kaya - 116200061<br>";
     if ($getResults == FALSE)
         echo (sqlsrv_errors());
     while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-     echo ($row['ProductName'] ."   "."<br>" . "   " . $row['CategoryName'] . PHP_EOL);
+     echo ($row['CategoryName']."&nbsp;&nbsp;&nbsp;".."<br>".."&nbsp;&nbsp;&nbsp;". $row['ProductName'] . PHP_EOL);
     }
     sqlsrv_free_stmt($getResults);
