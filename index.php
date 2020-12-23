@@ -8,7 +8,7 @@ echo "Cem Kaya - 116200061<br>";
     $connectionOptions = array(
         "Database" => "Assignment5", 
         "Uid" => "GurkanSaki", 
-        "PWD" => "Gürkan67" /
+        "PWD" => "Gürkan67" 
     );
     //Establishes the connection
     $conn = sqlsrv_connect($serverName, $connectionOptions);
