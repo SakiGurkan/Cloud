@@ -4,23 +4,22 @@ echo "Gürkan Saki - 116200029<br>";
 echo "Umut Alpaydın - 116200077<br>";
 echo "Cem Kaya - 116200061<br>";
 
-    $serverName = "assignment05.database.windows.net"; // update me
-    $connectionOptions = array(
-        "Database" => "Assignment5", // update me
-        "Uid" => "GurkanSaki", // update me
-        "PWD" => "Gürkan67" // update me
-    );
-    //Establishes the connection
-    $conn = sqlsrv_connect($serverName, $connectionOptions);
-    $tsql= "SELECT TOP 10 pc.Name as CategoryName, p.name as ProductName
+ try {    
+    $hostname = 'assignment05.database.windows.net';
+    $dbname = 'Assignment5';
+    $username = 'GürkanSaki';
+    $pwd = 'Gürkan67';
+    $pdo = new PDO ("dblib:version=8.0;charset=UTF-8;host={$hostname};dbname={$dbname}", $username, $pwd);
+    $query = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
          FROM [SalesLT].[ProductCategory] pc
          JOIN [SalesLT].[Product] p
          ON pc.productcategoryid = p.productcategoryid";
-    $getResults= sqlsrv_query($conn, $tsql);
-    echo ("Reading data from table<br>" . PHP_EOL);
-    if ($getResults == FALSE)
-        echo (sqlsrv_errors());
-    while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-     echo ($row['CategoryName']. "<br>". $row['ProductName'] ."   ". PHP_EOL);
-    }
-    sqlsrv_free_stmt($getResults);
+    $statement = $pdo->prepare($query);
+    $statement->execute();
+    
+    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+    var_dump($results);
+} catch (PDOException $e) {
+    echo "Failed to get DB handle: " . $e->getMessage() . "\n";
+    exit;
+}
