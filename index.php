@@ -4,11 +4,11 @@ echo "Gürkan Saki - 116200029<br>";
 echo "Umut Alpaydın - 116200077<br>";
 echo "Cem Kaya - 116200061<br>";
 
-    $serverName = "assignment05.database.windows.net"; // update me
+    $serverName = "assignment05.database.windows.net"; 
     $connectionOptions = array(
-        "Database" => "Assignment5", // update me
-        "Uid" => "GurkanSaki", // update me
-        "PWD" => "Gürkan67" // update me
+        "Database" => "Assignment5", 
+        "Uid" => "GurkanSaki", 
+        "PWD" => "Gürkan67" /
     );
     //Establishes the connection
     $conn = sqlsrv_connect($serverName, $connectionOptions);
