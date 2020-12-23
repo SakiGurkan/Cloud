@@ -12,7 +12,7 @@ echo "Cem Kaya - 116200061<br>";
     );
     //Establishes the connection
     $conn = sqlsrv_connect($serverName, $connectionOptions);
-    $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+    $tsql= "SELECT TOP 10 pc.Name as CategoryName, p.name as ProductName
          FROM [SalesLT].[ProductCategory] pc
          JOIN [SalesLT].[Product] p
          ON pc.productcategoryid = p.productcategoryid";
@@ -21,6 +21,6 @@ echo "Cem Kaya - 116200061<br>";
     if ($getResults == FALSE)
         echo (sqlsrv_errors());
     while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-     echo ($row['ProductName'] . "             <br>            " . $row['CategoryName'] . PHP_EOL);
+     echo ($row['ProductName'] ."   "."<br>" . "   " . $row['CategoryName'] . PHP_EOL);
     }
     sqlsrv_free_stmt($getResults);
