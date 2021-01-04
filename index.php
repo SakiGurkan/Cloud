@@ -18,7 +18,7 @@ echo "Cem Kaya - 116200061<br>";
     if ($getResults == FALSE)
         echo (sqlsrv_errors());
     while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-     echo ($row['CustomerID'] . " <br> " . $row['FirstName'] . " <br> " .  $row['LastName'] . PHP_EOL);
+     echo ($row['CustomerID'] . " " . $row['FirstName'] . " " .  $row['LastName'] . " <br> " . PHP_EOL);
     }
     sqlsrv_free_stmt($getResults);
 ?>
