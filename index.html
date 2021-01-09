@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Detec Faces Sample</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js">
-</script>
+    <title>Detec Faces Sample</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
-<script type="text/javascript">
+    <script type="text/javascript">
         function processImage() {
             // Replace <Subscription Key> with your valid subscription key.
-            var subscriptionKey = "c37b6283e1fd4e259ddb5d38b6cb6488";
+            var subscriptionKey = "ecfb0fb0b0e74808bebfc22e53856444";
 
-            var uriBase = "https://assignment7.cognitiveservices.azure.com/";
+            var uriBase = "https://assgn.cognitiveservices.azure.com/face/v1.0/detect";
 
-            //https://static.wixstatic.com/media/a19f5e_083cec011e9147dbaea30d8da502cca1~mv2_d_3264_2448_s_4_2.jpg
+
 
             // Request parameters.
             var params = {
@@ -23,6 +22,8 @@
                 "age,gender,headPose,smile,facialHair,glasses,emotion," +
                 "hair,makeup,occlusion,accessories,blur,exposure,noise"
             };
+
+         
 
             // Display the image.
             var sourceImageUrl = document.getElementById("inputImage").value;
@@ -60,24 +61,27 @@
                     alert(errorString);
                 });
         };
-</script>
-<h1>Detect Faces:</h1>
-Enter the URL to an image that includes a face or faces, then click
-the <strong>Analyze face</strong> button.<br><br>
-Image to anaylze: <input type="text" name="inputImage" id="inputImage"
-value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg"
-<button onclick="processImage()">Analyze face</button><br><br>
-<div id="wrapper" style="width:1020px; display:table;">
-<div id="jsonOutput" style="wdith:600px; display:table-cell;">
-Response:<br><br>
-<textarea id="responceTextArea" class="UIInput"
-style="width:580px; height:400px;"></textarea>
-</div>
-<div id="imageDiv" style="width:420px; display:table-cell;">
-Source image:<br><br>
-<img id="sourceImage" width="400p" />
-</div>
-</div>
+
+    </script>
+    <h1>Detect Faces:</h1>
+    Enter the URL to an image that includes a face or faces, then click the <strong> Analyze face</strong> button.
+    <br><br>
+    Image to anaylze:
+    <input type="text" name="inputImage" id="inputImage"
+                             value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg" />
+    <button onclick="processImage()">Analyze face</button>
+    <br><br>
+    <div id="wrapper" style="width:1020px; display:table;">
+        <div id="jsonOutput" style="width:600px; display:table-cell;">
+            Response:<br><br>
+            <textarea id="responseTextArea" class="UIInput"
+                      style="width:580px; height:400px;"></textarea>
+        </div>
+        <div id="imageDiv" style="width:420px; display:table-cell;">
+            Source image:
+            <br><br>
+            <img id="sourceImage" width="400" />
+        </div>
+    </div>
 </body>
 </html>
-    
